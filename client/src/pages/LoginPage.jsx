@@ -13,6 +13,7 @@ const LoginPage = () => {
       headers: { "Content-Type": "application/json" },
     });
     if (response.status === 200) {
+      alert("Login was successful");
       setRedirect(true);
     } else {
       alert("User not found");
@@ -20,7 +21,7 @@ const LoginPage = () => {
   }
 
   if (redirect) {
-    return <Navigate to={"/"} />;
+    return <Navigate to={"/loggedin"} />;
   }
   return (
     <form className="login" onSubmit={login}>
