@@ -1,7 +1,11 @@
 import React from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export const Header = () => {
+  useEffect(() => {
+    fetch("http://localhost:4000/profile", {});
+  }, []);
   return (
     <header>
       <a href="" className="logo">
