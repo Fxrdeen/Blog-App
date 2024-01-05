@@ -11,7 +11,7 @@ export const HeaderLog = () => {
       <nav>
         <a href="">
           {" "}
-          <Link to={`/createpost`}>Create a Post</Link>{" "}
+          <Link to={`/loggedin/createpost`}>Create a Post</Link>{" "}
         </a>
         <a href="">
           {" "}

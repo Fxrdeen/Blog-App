@@ -5,7 +5,7 @@ import IndexPage from "./pages/indexPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import { LayoutLog } from "./component/LayoutLog";
-import CreatePost from "./component/CreatePost";
+import CreatePost from "./pages/CreatePost";
 function App() {
   return (
     <Routes>
