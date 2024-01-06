@@ -6,6 +6,7 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import { LayoutLog } from "./component/LayoutLog";
 import CreatePost from "./pages/CreatePost";
+import PostPage from "./pages/PostPage";
 function App() {
   return (
     <Routes>
@@ -17,6 +18,7 @@ function App() {
       <Route path="/loggedin" element={<LayoutLog />}>
         <Route index element={<IndexPage />} />
         <Route path="/loggedin/createpost" element={<CreatePost />} />
+        <Route path="/loggedin/post/:id" element={<PostPage />} />
       </Route>
     </Routes>
   );

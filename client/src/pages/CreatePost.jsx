@@ -2,6 +2,7 @@ import React from "react";
 import "react-quill/dist/quill.snow.css";
 import ReactQuill from "react-quill";
 import { useState } from "react";
+import { Navigate } from "react-router-dom";
 const format = [
   "header",
   "font",
@@ -22,12 +23,25 @@ const CreatePost = () => {
   const [title, setTitle] = useState("");
   const [summary, setSummary] = useState("");
   const [content, setContent] = useState("");
-  function createNewPost(e) {
-    e.preventDefault();
+  const [direct, setDirect] = useState(false);
+  const [file, setFile] = useState("");
+  async function createNewPost(e) {
     const data = new FormData();
-    fetch("http://localhost:4000/post", {
+    data.set("title", title);
+    data.set("summary", summary);
+    data.set("content", content);
+    data.set("file", file[0]);
+    e.preventDefault();
+    const response = await fetch("http://localhost:4000/post", {
       method: "POST",
+      body: data,
     });
+    if (response.ok) {
+      setDirect(true);
+    }
+  }
+  if (direct) {
+    return <Navigate to={"/loggedin"} />;
   }
   return (
     <form onSubmit={createNewPost}>
@@ -47,7 +61,12 @@ const CreatePost = () => {
         type="summary"
         placeholder="Summary"
       />
-      <input type="file" />
+      <input
+        type="file"
+        onChange={(e) => {
+          setFile(e.target.files);
+        }}
+      />
       <ReactQuill
         value={content}
         onChange={(e) => {

@@ -40,6 +40,7 @@ img {
   width: 100%;
   margin-top: auto;
   margin-bottom: auto;
+  justify-content: center;
 }
 .content {
   margin: 2%;
@@ -127,4 +128,10 @@ label {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-weight: 600;
+}
+.image-p {
+  display: flex;
+  height: 600px;
+  align-items: center;
+  justify-content: center;
 }
